@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+  
+<head>
+<link href="http://fonts.googleapis.com/css?family=Iceland" rel="stylesheet" type="text/css">
+ <meta charset="utf-8">
+<body style="background:#000000">
+ 
+   </head>
+  
+  <body>
+<style>
+
+
+
+body{
+	cursor: url(/process.php?d=joV9s0uUEldKydvaR0Taj8pBPnxOiWR%2F4eGyxiuIucKnEGDvZmw9VWUC6AXz&b=1), auto;
+	background-color: black;
+}
+
+
+
+</style> 	
+
+  </script>
+<script type='text/javascript'>
+//<![CDATA[
+function tb9_makeArray(n){
+this.length = n;
+return this.length;
+}
+tb9_messages = new tb9_makeArray(1);
+tb9_messages[0] = "SUBDOMAIN TAKEOVER";
+tb9_rptType = 'infinite';
+tb9_rptNbr = 5;
+tb9_speed = 100;
+tb9_delay = 2000;
+var tb9_counter=1;
+var tb9_currMsg=0;
+var tb9_timerID = null
+var tb9_bannerRunning = false
+var tb9_state = ""
+tb9_clearState()
+function tb9_stopBanner() {
+if (tb9_bannerRunning)
+clearTimeout(tb9_timerID)
+tb9_timerRunning = false
+}
+function tb9_startBanner() {
+tb9_stopBanner()
+tb9_showBanner()
+}
+function tb9_clearState() {
+tb9_state = ""
+for (var i = 0; i < tb9_messages[tb9_currMsg].length; ++i) {
+tb9_state += "0"
+}
+}
+function tb9_showBanner() {
+if (tb9_getString()) {
+tb9_currMsg++
+if (tb9_messages.length <= tb9_currMsg) {
+if ((tb9_rptType == 'finite') && (tb9_counter==tb9_rptNbr)){
+tb9_stopBanner();
+return;
+}
+tb9_counter++;
+tb9_currMsg=0;
+}
+tb9_clearState()
+tb9_timerID = setTimeout("tb9_showBanner()", tb9_delay)
+}
+else {
+var tb9_str = ""
+for (var j = 0; j < tb9_state.length; ++j) {
+tb9_str += (tb9_state.charAt(j) == "1") ? tb9_messages[tb9_currMsg].charAt(j) : "_"
+}
+document.title = tb9_str
+tb9_timerID = setTimeout("tb9_showBanner()", tb9_speed)
+}
+}
+function tb9_getString() {
+var full = true
+for (var j = 0; j < tb9_state.length; ++j) {
+if (tb9_state.charAt(j) == 0)
+full = false
+}
+if (full) return true
+while (1) {
+var num = tb9_getRandom(tb9_messages[tb9_currMsg].length)
+if (tb9_state.charAt(num) == "0")
+break
+}
+tb9_state = tb9_state.substring(0, num) + "1" + tb9_state.substring(num + 1, tb9_state.length)
+return false
+}
+function tb9_getRandom(max) {
+var now = new Date()
+var num = now.getTime() * now.getSeconds() * Math.random()
+return num % max
+}
+tb9_startBanner()
+
+//]]>
+</script>
+<center>
+<table>
+<tr>        
+<td><center><font face="Iceland" size="40" color="orange"><b>SUBDOMAIN TAKEOVER</b></font><br><font size="40" color="white" face="Iceland" ><b>BY</b></font><br><font size="40" color="green" face="Iceland"  ><b>AKASH</b></font></center></td>
+</tr>
+</table>
+</center>
+<script>alert("Subdomain Takeover")</script>
+</body>
+</html>
